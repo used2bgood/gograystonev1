@@ -36,18 +36,33 @@ body{
 .section{padding:4rem 0}
 .visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
 
-/* ---------- Header / Nav ---------- */
+/* ---------- Header / Nav (shared) ---------- */
 header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(6px)}
-.topbar{background:linear-gradient(90deg, var(--brand-gray), var(--brand-red)); box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.topbar{
+  background:#ffffff; position:relative; box-shadow:0 2px 8px rgba(0,0,0,.06);
+  border-bottom:1px solid #e5e7eb; transition: box-shadow .25s ease
+}
+.topbar::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+  background:linear-gradient(90deg, var(--brand-gray), var(--brand-red)); opacity:.35; pointer-events:none
+}
+.topbar.scrolled{box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0}
 .brand{display:flex;gap:.75rem;align-items:center}
 .brand img{height:44px;width:auto}
-.brand h1{font-size:1.05rem;color:#f8fafc;margin:0;letter-spacing:.04em}
-.nav a{color:#f1f1f1;text-decoration:none;margin:0 .5rem;transition:color .2s ease}
-.nav a:hover{color:var(--brand-red-light)}
+.nav a{
+  color:var(--graphite-900);text-decoration:none;margin:0 .5rem;transition:color .2s ease; position:relative
+}
+.nav a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background:linear-gradient(90deg, var(--brand-gray), var(--brand-red));
+  transform:scaleX(0); transform-origin:left; transition:transform .25s ease; opacity:.6
+}
+.nav a:hover{color:var(--brand-red)}
+.nav a:hover::after{transform:scaleX(1)}
 .cta-btn{background:var(--graphite-700);color:#fff;border:none;border-radius:.6rem;padding:.6rem 1rem;font-weight:600;cursor:pointer}
 .cta-btn:hover{background:var(--graphite-900)}
-.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem}
+.menu-toggle{display:none;background:none;border:none;color:var(--graphite-900);font-size:1.5rem}
 @media (max-width: 820px){.nav-links{display:none}.menu-toggle{display:block}}
 
 /* Mobile drawer */
@@ -106,7 +121,7 @@ input:focus,textarea:focus{outline:3px solid var(--ring);border-color:var(--ring
 textarea{min-height:140px}
 .notice{font-size:.85rem;color:#475569}
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (shared) ---------- */
 footer{background:#0f0f0f;color:#cbd5e1;margin-top:3rem;padding:2rem 0 3rem}
 footer a{color:#cbd5e1;text-decoration:underline}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:1rem}
