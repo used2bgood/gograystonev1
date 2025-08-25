@@ -1,0 +1,82 @@
+/* ====== Shared tokens ====== */
+:root{
+  --bg:#f7f7f8;
+  --ink:#0f172a;
+  --muted:#475569;
+  --panel:#ffffff;
+  --border:#e5e7eb;
+  --shadow: 0 10px 30px rgba(2,6,23,.08);
+  --brand-red:#9b1c1c;
+  --brand-gray:#3a3a3a;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+
+/* Layout */
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 1rem 4rem}
+.pagehead{margin-bottom:1.25rem}
+.pagehead h1{margin:.2rem 0 .25rem;font-size:clamp(1.2rem,3vw,1.8rem)}
+.pagehead p{color:var(--muted);margin:0 0 .75rem}
+.controls{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.toggle{display:flex;align-items:center;gap:.45rem;color:var(--muted)}
+
+.card{display:grid;grid-template-columns:1fr 1fr;gap:1rem;background:var(--panel);border:1px solid var(--border);border-radius:1rem;padding:1rem;box-shadow:var(--shadow);margin:1rem 0}
+@media (max-width:900px){.card{grid-template-columns:1fr}}
+.meta h2{margin:.1rem 0 .25rem;font-size:1.1rem}
+.meta p{margin:0 0 .5rem;color:var(--muted)}
+.actions{display:flex;align-items:center;gap:.5rem}
+.stage{position:relative;display:flex;align-items:center;justify-content:center;padding:.5rem;min-height:180px;background:linear-gradient(180deg,#fafafa,#f3f4f6);border-radius:.75rem;border:1px dashed #e5e7eb}
+.stage--svg{min-height:220px}
+.btn{appearance:none;border:1px solid var(--border);background:#fff;padding:.5rem .8rem;border-radius:.6rem;cursor:pointer}
+.btn:hover{border-color:#cbd5e1}
+.logo{max-width:520px;width:100%;height:auto;display:block}
+
+/* ====== Animations ====== */
+
+/* Clean Pop-in */
+.logo--pop{animation: popIn .7s cubic-bezier(.16,.97,.43,1) both}
+@keyframes popIn{
+  0%{opacity:0; transform: translateY(10px) scale(.96); filter:blur(.5px)}
+  60%{opacity:1; transform: translateY(0) scale(1.02); filter:blur(0)}
+  100%{opacity:1; transform: translateY(0) scale(1)}
+}
+
+/* Wipe Reveal */
+.logo--wipe{
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 50%, transparent 60%);
+  -webkit-mask-size: 200% 100%;
+  -webkit-mask-position: 0% 0%;
+          mask-image: linear-gradient(90deg, #000 0%, #000 50%, transparent 60%);
+          mask-size: 200% 100%;
+          mask-position: 0% 0%;
+  animation: wipeIn 1.2s ease both;
+}
+.logo--wipe:hover{ animation: wipeLoop 1.2s ease both }
+@keyframes wipeIn{
+  from{ -webkit-mask-position: 100% 0%; mask-position: 100% 0%; opacity:0; transform: translateY(8px) }
+  60%{ opacity:1; transform: translateY(0) }
+  to{ -webkit-mask-position: 0% 0%; mask-position: 0% 0%; opacity:1 }
+}
+@keyframes wipeLoop{
+  from{ -webkit-mask-position: 100% 0%; mask-position: 100% 0% }
+  to{ -webkit-mask-position: 0% 0%; mask-position: 0% 0% }
+}
+
+/* Subtle Lift (Hover) */
+.logo--lift{animation: fadeIn .5s ease both; transition: transform .25s ease, filter .25s ease; transform-origin:50% 60%}
+.logo--lift:hover{transform: translateY(-2px) scale(1.02); filter: drop-shadow(0 10px 22px rgba(155,28,28,.12))}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+
+/* SVG Stroke-Draw */
+.svg-draw svg{max-width:520px;width:100%;height:auto;display:block}
+.svg-draw.ready path, .svg-draw.ready circle, .svg-draw.ready rect, .svg-draw.ready polyline, .svg-draw.ready polygon{
+  fill: none !important; stroke: var(--brand-gray); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.svg-draw.ready.done path, .svg-draw.ready.done circle, .svg-draw.ready.done rect, .svg-draw.ready.done polyline, .svg-draw.ready.done polygon{
+  transition: fill .35s ease .1s; fill: #222 !important; stroke: var(--brand-red); stroke-width: 1.5;
+}
+
+/* Reduced motion simulation */
+.reduced .logo, .reduced .svg-draw{animation: none !important; transition: none !important}
+.reduced .logo--wipe{ -webkit-mask: none !important; mask: none !important }
