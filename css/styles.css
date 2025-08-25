@@ -63,7 +63,7 @@ header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(120%) blur(6px)
 .cta-btn{background:var(--graphite-700);color:#fff;border:none;border-radius:.6rem;padding:.6rem 1rem;font-weight:600;cursor:pointer}
 .cta-btn:hover{background:var(--graphite-900)}
 .menu-toggle{display:none;background:none;border:none;color:var(--graphite-900);font-size:1.5rem}
-@media (max-width: 820px){.nav-links{display:none}.menu-toggle{display:block}}
+@media (max-width: 1020px){.nav-links{display:none}.menu-toggle{display:block}}
 
 /* Mobile drawer */
 .drawer{display:none;position:fixed;inset:0 0 auto auto;background:rgba(0,0,0,.45)}
