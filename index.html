@@ -3,218 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Graystone Contracting | Roofing • Fencing • Restoration – DFW</title>
-  <meta name="description" content="Graystone Contracting provides roofing, fencing, and restoration services across DFW. Evidence-based scopes, clear estimates, and quality workmanship." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Graystone Contracting – DFW" />
-  <meta property="og:description" content="Evidence-based scopes. Clear estimates. Quality workmanship." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/graystone-og.jpg" />
-  <meta property="og:url" content="https://graystone-contracting.com/" />
-
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Graystone Contracting",
-    "image": "assets/logo-graystone.png",
-    "telephone": "+1-469-974-5254",
-    "email": "jaren@graystone-contracting.com",
-    "address": {"@type":"PostalAddress","addressLocality":"Plano","addressRegion":"TX","postalCode":"75024","addressCountry":"US"},
-    "areaServed": ["Dallas–Fort Worth", "Collin County", "Denton County"],
-    "url": "https://graystone-contracting.com/",
-    "description": "Roofing, fencing, and restoration with evidence-based scopes and clear estimates."
-  }
-  </script>
-
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Graystone – Logo Animation Gallery (v3)</title>
+  <link rel="stylesheet" href="css/logo-animations.css" />
 </head>
-<body class="blueprint-bg">
-  <a class="visually-hidden" href="#main">Skip to content</a>
-
-  <!-- Header (shared across pages) -->
-  <header class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <!-- Use a transparent PNG at assets/logo-graystone.png (avoid spaces in filename) -->
-        <img src="assets/logo-graystone.png" alt="Graystone Contracting Logo" />
+<body>
+  <main class="wrap">
+    <header class="pagehead">
+      <h1>Graystone Logo – Animation Gallery</h1>
+      <p>Below are subtle, brand-appropriate motions for the Graystone mark. Use Replay to see the entrance again.</p>
+      <div class="controls">
+        <button class="btn" onclick="replayAll()">Replay All</button>
+        <label class="toggle"><input id="reduce" type="checkbox" onchange="toggleReduced()"><span>Simulate reduced motion</span></label>
       </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#testimonials">Reviews</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-      <button class="menu-toggle" aria-label="Open menu" onclick="toggleMenu()">☰</button>
-    </div>
-    <div id="drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Mobile menu">
-      <div class="drawer-panel">
-        <button class="cta-btn" style="width:100%;margin-bottom:.75rem" onclick="closeMenu(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
-        <a href="#services" onclick="closeMenu()">Services</a>
-        <a href="#projects" onclick="closeMenu()">Projects</a>
-        <a href="#testimonials" onclick="closeMenu()">Reviews</a>
-        <a href="#contact" onclick="closeMenu()">Contact</a>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div id="logoSlot" class="svg-draw"></div>
-  <script>
-  // Run on load or after route changes
-  graystoneDraw('#logoSlot', 'assets/logo.svg');
-  </script>
-
-      <div class="container">
-        <img class="logo" src="assets/logo-graystone.png" alt="Graystone Contracting" />
-        <h2>Evidence-Based Scopes. Clear Estimates. Quality Work.</h2>
-        <p>Roofing, fencing, and restoration across DFW. We use current pricing, code-compliant scopes, and photo-documented estimates to make projects smooth for homeowners and adjusters alike.</p>
-        <div class="badges" aria-label="Trust badges">
-          <span class="badge">Licensed & Insured</span>
-          <span class="badge">Xactimate-Ready Estimates</span>
-          <span class="badge">5-Year Material & Workmanship Warranty*</span>
+    <!-- SVG Stroke-Draw (uses your uploaded SVG) -->
+    <section class="card">
+      <div class="meta">
+        <h2>SVG Stroke‑Draw (Premium)</h2>
+        <p>Outlines draw in, then the fills appear. Uses <code>assets/logo.svg</code> (already included).</p>
+        <div class="actions">
+          <button class="btn" onclick="replay('#svgSlot')">Replay</button>
+          <code>#svgSlot.svg-draw</code>
         </div>
       </div>
-    </section>
-
-    <!-- Trust bar -->
-    <section class="trust section">
-      <div class="container wrap">
-        <div class="item"><strong>DFW-Wide</strong> Service Area</div>
-        <div class="item"><strong>24–48 hr</strong> Site Visits</div>
-        <div class="item"><strong>Insurance-Friendly</strong> Documentation</div>
+      <div class="stage stage--svg">
+        <div id="svgSlot" class="svg-draw" aria-live="polite">Loading SVG…</div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Services</h2>
-        <div class="grid">
-          <article class="card">
-            <div class="img"><img src="assets/services-roofing.jpg" alt="Roofing replacement and repairs"></div>
-            <div class="body">
-              <h3>Roofing</h3>
-              <p>Full replacements & repairs with code-compliant details (step flashing, ventilation, underlayment) and clean job sites.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="img"><img src="assets/services-fence.jpg" alt="Cedar fence installation"></div>
-            <div class="body">
-              <h3>Fencing</h3>
-              <p>Board-on-board cedar, metal posts, stained pickets, and custom gates with straight lines and strong hardware.</p>
-            </div>
-          </article>
-          <article class="card">
-            <div class="img"><img src="assets/services-mitigation.jpg" alt="Water mitigation"></div>
-            <div class="body">
-              <h3>Water Mitigation & Exteriors</h3>
-              <p>Dry-outs, fascia/soffit, gutters, siding—documented with photos to keep scopes clear for all parties.</p>
-            </div>
-          </article>
-        </div>
-
-        <div style="margin-top:1rem" class="cta-band">
-          <p><strong>Need a fast, fair estimate?</strong> Send plans/photos and we’ll reply with a clear scope.</p>
-          <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+    <!-- Clean Pop-in -->
+    <section class="card">
+      <div class="meta">
+        <h2>Clean Pop‑in</h2>
+        <p>Fade + tiny overshoot. Professional and unobtrusive.</p>
+        <div class="actions">
+          <button class="btn" onclick="replay('#pop')">Replay</button>
+          <code>.logo--pop</code>
         </div>
       </div>
+      <div class="stage">
+        <img id="pop" class="logo logo--pop" src="assets/logo.svg" alt="Graystone logo (pop animation)" />
+      </div>
     </section>
 
-    <!-- Projects / Gallery -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Recent Projects</h2>
-        <div class="gallery" aria-label="Project photos">
-          <img src="assets/g1.jpg" alt="Project photo 1">
-          <img src="assets/g2.jpg" alt="Project photo 2">
-          <img src="assets/g3.jpg" alt="Project photo 3">
-          <img src="assets/g4.jpg" alt="Project photo 4">
-          <img src="assets/g5.jpg" alt="Project photo 5">
-          <img src="assets/g6.jpg" alt="Project photo 6">
-          <img src="assets/g7.jpg" alt="Project photo 7">
-          <img src="assets/g8.jpg" alt="Project photo 8">
+    <!-- Wipe Reveal -->
+    <section class="card">
+      <div class="meta">
+        <h2>Wipe Reveal</h2>
+        <p>Left→right reveal using a CSS mask; loops on hover.</p>
+        <div class="actions">
+          <button class="btn" onclick="replay('#wipe')">Replay</button>
+          <code>.logo--wipe</code>
         </div>
       </div>
+      <div class="stage">
+        <img id="wipe" class="logo logo--wipe" src="assets/logo.svg" alt="Graystone logo (wipe animation)" />
+      </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section">
-      <div class="container">
-        <h2>Reviews</h2>
-        <div class="grid">
-          <figure class="quote">
-            <div class="stars" aria-hidden="true">★★★★★</div>
-            <blockquote>Graystone handled our roof and fence flawlessly. The estimate matched the work, no surprises.</blockquote>
-            <figcaption>— Homeowner, Frisco</figcaption>
-          </figure>
-          <figure class="quote">
-            <div class="stars" aria-hidden="true">★★★★★</div>
-            <blockquote>Clean crew, tight lines on the fence, and they documented everything for the claim.</blockquote>
-            <figcaption>— Property Owner, Plano</figcaption>
-          </figure>
-          <figure class="quote">
-            <div class="stars" aria-hidden="true">★★★★★</div>
-            <blockquote>As an adjuster, I appreciate the clarity—photos, codes, and current pricing in one packet.</blockquote>
-            <figcaption>— Independent Adjuster, DFW</figcaption>
-          </figure>
+    <!-- Subtle Lift (hover only) -->
+    <section class="card">
+      <div class="meta">
+        <h2>Subtle Lift (Hover)</h2>
+        <p>On hover: a 2px lift with a soft maroon‑tinted shadow.</p>
+        <div class="actions">
+          <button class="btn" onclick="replay('#lift')">Replay (entrance)</button>
+          <code>.logo--lift</code>
         </div>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="notice">Have photos or plans? Attach links below and we’ll respond with a clear, line-item estimate. *Warranty activates upon payment in full and excludes storm or accidental damage.*</p>
-        <form method="post" action="#">
-          <!-- Replace action with your processor (Formspree, Basin) or mailto: -->
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" required />
-          </div>
-          <div>
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" inputmode="tel" pattern="[0-9\-\+\(\) ]+" />
-          </div>
-          <div class="full">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div class="full">
-            <label for="message">Project Details / Links to Photos</label>
-            <textarea id="message" name="message" placeholder="Address, scope, insurance details (if any), timelines…"></textarea>
-          </div>
-          <div class="full" style="display:flex;gap:.75rem;align-items:center;flex-wrap:wrap">
-            <button class="cta-btn" type="submit">Send Request</button>
-            <span class="notice">Or call <strong>(469) 974-5254</strong> • <a href="mailto:jaren@graystone-contracting.com">jaren@graystone-contracting.com</a></span>
-          </div>
-        </form>
+      <div class="stage">
+        <img id="lift" class="logo logo--lift" src="assets/logo.svg" alt="Graystone logo (lift hover)" />
       </div>
     </section>
+
+    <footer class="foot">
+      <p>Drop‑in snippets are in <code>/snippets</code>. Copy/paste a style into any site.</p>
+    </footer>
   </main>
 
-  <!-- Footer (shared across pages) -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <strong>Graystone Contracting</strong><br/>
-        Plano, TX 75024 • (469) 974-5254<br/>
-        <a href="mailto:jaren@graystone-contracting.com">jaren@graystone-contracting.com</a>
-        <div class="subfooter">© <span id="year"></span> Graystone Contracting. All rights reserved. • Evidence-based scopes • Estimate clarity • Code-compliant installs.</div>
-      </div>
-      <div>
-        <strong>Quick Links</strong><br/>
-        <a href="#services">Services</a> • <a href="#projects">Projects</a> • <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/logo-animations.js"></script>
 </body>
 </html>
